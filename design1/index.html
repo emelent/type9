@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Type 9</title>
+
+	<link rel="stylesheet" href="./css/tachyons.min.css">
+	<link rel="stylesheet" href="./css/font-awesome.min.css">
+<style>
+
+@font-face{
+	font-family: FiraSans;
+	src: url('./fonts/FiraSans-Thin.ttf');
+}
+body{
+	--main-br: 5px;
+	font-family: FiraSans;
+}
+
+.-bg-gray{background: #565151;}
+.-bg-iron{background: #b3a6aa;}
+.-bg-blue{background: #6695ef;}
+.-bg-orange{background: #e29047;}
+.-bg-dark{background:#2d2b2b;}
+.-bg-red{background: #ed4469;}
+
+.-gray{color: #565151;}
+.-blue{color: #6695ef;}
+.-orange{color: #e29047;}
+.-dark{color:#2d2b2b;}
+.-red{color: #ed4469;}
+
+.-bottom-3{bottom: 6rem;}
+.-w-85{width: 85%;}
+.-w-15{width: 15%;}
+.-h-70{height: 70%;}
+.-mh-auto{margin-left: auto; margin-right: auto;}
+.-mv-auto{margin-bottom: auto; margin-top: auto;}
+.-ma-auto{margin: auto;}
+
+.-round-top{
+	border-top-left-radius: var(--main-br);
+	border-top-right-radius: var(--main-br);
+}
+.-round-right{
+	border-top-right-radius: var(--main-br);
+	border-bottom-right-radius: var(--main-br);
+}
+.-round-left{
+	border-top-left-radius: var(--main-br);
+	border-bottom-left-radius: var(--main-br);
+}
+
+.-all-round{border-radius: var(--main-br);}
+
+
+#player::after{
+	--ps-width: 16px;
+	content: "";
+	position: absolute;
+	top: 0px;
+	left:0px;
+	width: var(--ps-width);
+	height: 100%;
+	max-height: 700px;
+	background: rgba(0,0,0,0.2);
+	z-index: 0;
+}
+
+#player{
+	display: flex;
+	flex-direction: column;
+	max-width: 400px;
+	max-height: 700px;
+	padding: 0 10px;
+	padding-top: 70px;
+}
+#tape-cover{
+	flex: 1;
+	margin: auto;
+	width: 85%;
+}
+#tape-view{
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	justify-items: center;
+	align-items: center;
+	padding: 20px;
+}
+
+#player-buttons{
+	max-width: 50px;
+}
+
+#share-button{height: 200px;}
+.side-button{
+	position: relative;
+	height: 80px;
+}
+.side-button::after{
+	--ss-width: 6px;
+	content: "";
+	position: absolute;
+	top: 0px;
+	right: calc(-1 * var(--ss-width));
+	width: var(--ss-width);
+	height: 100%;
+	border-top-right-radius: var(--main-br);
+	border-bottom-right-radius: var(--main-br);
+	background: #222;
+}
+.tape-circle{
+	width: 70%;
+	height: 55%;
+}
+</style>
+</head>
+<body>
+	<div id="wrapper" class="pa2-l pa2-m bg-washed-yellow absolute absolute--fill">
+		<div id="player" class="relative-m relative-l br2-m br2-l flex fl z-1 -bg-blue h-100 -w-85">
+			<div id="tape-cover" class="relative -bg-dark -round-top">
+				<div class="f2 -red ml3 mt3">Type 9</div>
+				<div class=" f5 white pa2 ml3 mt3 -bg-red">classics</div>
+				<div id="tape-view" class="absolute flex flex-column bottom-0 left-1 -h-70 w-60 -bg-gray">
+					<div class="tape-circle border-box br-100 -bg-dark"></div>
+					<div class="tape-circle border-box br-100 -bg-dark"></div>
+				</div>
+			</div>
+		</div>
+		<div id="player-buttons" class="fl w-10 -red tc">
+			<div id="play-button" class="pt4 hover-white pointer side-button -bg-dark w-100 mv3">
+				<span class="fa fa-play"></span>
+			</div>
+			<div id="pause-button" class="pt4 hover-white pointer side-button -bg-dark w-100 mv3">
+				<span class="fa fa-pause"></span>
+			</div>
+			<div id="share-button" class="f5 side-button -bg-dark w-100 mv3 tc pv4">
+				<div class="h-25 fa fa-facebook w-100 pa1 pointer hover-white"></div>
+				<div class="h-25 fa fa-twitter w-100 pv1 pointer hover-white"></div>
+				<div class="h-25 fa fa-instagram w-100 pv1 pointer hover-white"></div>
+				<div class="h-25 fa fa-soundcloud w-100 pv1 pointer hover-white"></div>
+			</div>
+		</div>
+
+	</div>
+
+<script>
+</script>
+</body>
+</html>
