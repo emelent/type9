@@ -9,23 +9,123 @@
 	<link rel="stylesheet" href="./css/tachyons.min.css">
 	<link rel="stylesheet" href="./css/font-awesome.min.css">
 <style>
-	@font-face{
-		font-family: Fira;
-		src: url('./css/FiraSans-Thin.ttf');
-	}
-	body{
-		font-family: Fira;
-	}
+@font-face{
+	font-family: Fira;
+	src: url('./fonts/FiraSans-Thin.ttf');
+}
+body{
+	font-family: Fira;
+}
+
+*, *::before, *::after{
+	font-family: inherit;
+}
+
+.-bg-gray{background: #565151;}
+.-bg-iron{background: #b3a6aa;}
+.-bg-blue{background: #6695ef;}
+.-bg-orange{background: #e29047;}
+.-bg-dark{background:#2d2b2b;}
+.-bg-red{background: #ed4469;}
+.-bg-red2{background: #ed446845;}
+.-bg-red3{background: #ed446814;}
+
+.-gray{color: #565151;}
+.-blue{color: #6695ef;}
+.-orange{color: #e29047;}
+.-dark{color:#2d2b2b;}
+.-red{color: #ed4469;}
+
+.-absolute-center{
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+#play-button{
+	--size: 90px;
+	width: var(--size);
+	height: var(--size);
+	line-height: var(--size);
+}
+
+.center-circ-1{
+	--size: 130px;
+	width: var(--size);
+	height: var(--size);
+	transition: 0.3s all ease;
+}
+
+.center-circ-2{
+	--size: 200px;
+	width: var(--size);
+	height: var(--size);
+}
+
+#wrapper{
+	/* background: rgba(0,0,0,0.5); */
+}
+
+body{
+	padding: 0;
+	margin: 0;
+	/* color: #fff; 
+	background-color: #111; */
+	/* background-image: url('./images/tunnel2.jpg'); */
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+}
+
+
+/*phones*/
+@media (max-width:767px) {
+	/* turn off cursor on touch devices & prevent the nasties */
+	*, *::after, *::before{cursor: default !important;}
+}
+
+/*tablet*/
+@media (min-width:768px) and (max-width:991px) {
+	/* turn off cursor on touch devices & prevent the nasties */
+	*, *::after, *::before{cursor: default !important;}
+}
+.-top-3{top: 3em;}
+.-bottom-3{bottom: 3em;}
+.-right-3{right: 3em;}
+.-left-3{left: 3em;}
+.-down-word{
+	width: 10px;
+	overflow-wrap: break-word;
+	text-align: center;
+	text-transform: uppercase;
+}
+
 </style>
 </head>
-<body>
-	<div class="ma2 tc">
-		<h1 class="f1 fw1">Type 9
-				<span class="fa fa-play"></span></h1>
-		<div>
-			<span class="fa fa-play"></span>
+<body class="athelas">
+	<div class="f4 absolute -down-word top-1 left-1">Realest</div>
+	<div class="f4 absolute -down-word bottom-1 right-1">Trappin</div>
+	<div class="f4 absolute -down-word -top-3 -right-3">C.R.E.A.M</div>
+	<div class="f4 absolute -down-word -bottom-3 -left-3">Limitless</div>
+	<div id="wrapper" class="z-1 absolute absolute--fill">
+		<div class="ma2 tc">
+			<h1 class="f1 fw1">Type 9</span></h1>
+			<div class="absolute br-100 -absolute-center center-circ-1"></div>
+			<div id="play-button" class="-red hover-near-white pointer absolute br-100 pl2 -absolute-center f1 tc bg-black">
+				<span class="fa fa-play"></span>
+			</div>
+			<div id="social-button" class="z-3 mv2 absolute bottom-0 ttc f1 w-100 pointer">+</div>
 		</div>
-		<div class="mv2 absolute bottom-0 ttc f1 w-100">+</div>
+	</div>
+	<div id="menu" class="absolute absolute--fill bg-white pa3 z-0 o-0">
+		<ul class="list f2 pl0">
+			<li class="mv4 mh2"><span class="fa fa-facebook-official"></span> facebook</li>
+			<li class="mv4 mh2"><span class="fa fa-twitter"></span> twitter</li>
+			<li class="mv4 mh2"><span class="fa fa-instagram"></span> instagram</li>
+			<li class="mv4 mh2"><span class="fa fa-soundcloud"></span> soundcloud</li>
+		</ul>
 	</div>
 </body>
 </html>
