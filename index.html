@@ -18,7 +18,7 @@
 	src: url('./fonts/FiraSans-Thin.ttf');
 }
 body{
-	--main-br: 0px;
+	--main-br: 5px;
 	font-family: FiraSans;
 }
 
@@ -64,21 +64,26 @@ body{
 	content: "";
 	position: absolute;
 	top: 0px;
-	right:0px;
+	left:0px;
 	width: var(--ps-width);
 	height: 100%;
+	max-height: 700px;
 	background: rgba(0,0,0,0.2);
 	z-index: 0;
+}
 
+#player{
+	display: flex;
+	flex-direction: column;
+	max-width: 400px;
+	max-height: 700px;
+	padding: 0 10px;
+	padding-top: 70px;
 }
 #tape-cover{
-	position: absolute;
-	bottom:0;
-	left:0;
-	right:0;
-	margin: 0 auto;
-	width: 70vw;
-	height:80vh;
+	flex: 1;
+	margin: auto;
+	width: 85%;
 }
 #tape-view{
 	display: grid;
@@ -86,6 +91,10 @@ body{
 	justify-items: center;
 	align-items: center;
 	padding: 20px;
+}
+
+#player-buttons{
+	max-width: 50px;
 }
 
 #share-button{height: 200px;}
@@ -101,6 +110,8 @@ body{
 	right: calc(-1 * var(--ss-width));
 	width: var(--ss-width);
 	height: 100%;
+	border-top-right-radius: var(--main-br);
+	border-bottom-right-radius: var(--main-br);
 	background: #222;
 }
 .tape-circle{
@@ -110,29 +121,29 @@ body{
 </style>
 </head>
 <body>
-	<div id="wrapper" class="-bg-gray absolute absolute--fill">
-		<div id="player" class="relative z-2 -bg-blue h-100 -w-85">
-			<div id="tape-cover" class="-bg-dark -round-top">
+	<div id="wrapper" class="pa2-l pa2-m bg-washed-yellow absolute absolute--fill">
+		<div id="player" class="relative-m relative-l br2-m br2-l flex fl z-1 -bg-blue h-100 -w-85">
+			<div id="tape-cover" class="relative -bg-dark -round-top">
 				<div class="f2 -red ml3 mt3">Type 9</div>
-				<div class="-round-left f5 white pa2 ml3 mt3 -bg-red">classics</div>
-				<div id="tape-view" class="-round-top absolute flex flex-column bottom-0 left-1 -h-70 w-60 -bg-gray">
+				<div class=" f5 white pa2 ml3 mt3 -bg-red">classics</div>
+				<div id="tape-view" class="absolute flex flex-column bottom-0 left-1 -h-70 w-60 -bg-gray">
 					<div class="tape-circle border-box br-100 -bg-dark"></div>
 					<div class="tape-circle border-box br-100 -bg-dark"></div>
 				</div>
 			</div>
 		</div>
-		<div id="player-buttons" class="z-1 absolute bottom-0 right-1 w-10 -red tc">
-			<div id="play-button" class="pt4 -round-right side-button -bg-dark w-100 mv3">
+		<div id="player-buttons" class="fl w-10 -red tc">
+			<div id="play-button" class="pt4 hover-white pointer side-button -bg-dark w-100 mv3">
 				<span class="fa fa-play"></span>
 			</div>
-			<div id="pause-button" class="pt4 -round-right side-button -bg-dark w-100 mv3">
+			<div id="pause-button" class="pt4 hover-white pointer side-button -bg-dark w-100 mv3">
 				<span class="fa fa-pause"></span>
 			</div>
-			<div id="share-button" class="f5 -round-right side-button -bg-dark w-100 mv3 tc pv4">
-				<div class="h-25 fa fa-facebook w-100 pa1 pointer"></div>
-				<div class="h-25 fa fa-twitter w-100 pv1 pointer"></div>
-				<div class="h-25 fa fa-instagram w-100 pv1 pointer"></div>
-				<div class="h-25 fa fa-soundcloud w-100 pv1 pointer"></div>
+			<div id="share-button" class="f5 side-button -bg-dark w-100 mv3 tc pv4">
+				<div class="h-25 fa fa-facebook w-100 pa1 pointer hover-white"></div>
+				<div class="h-25 fa fa-twitter w-100 pv1 pointer hover-white"></div>
+				<div class="h-25 fa fa-instagram w-100 pv1 pointer hover-white"></div>
+				<div class="h-25 fa fa-soundcloud w-100 pv1 pointer hover-white"></div>
 			</div>
 		</div>
 
