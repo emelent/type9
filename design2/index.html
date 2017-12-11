@@ -9,87 +9,43 @@
 	<link rel="stylesheet" href="./css/tachyons.min.css">
 	<link rel="stylesheet" href="./css/font-awesome.min.css">
 <style>
-@font-face{
-	font-family: Fira;
-	src: url('./fonts/FiraSans-Thin.ttf');
+
+html{
+	padding: 0;
+	margin: 0;
+	color: #fff; 
+	background-color: #000;
+	/* background-image: url('./images/hand.jpg'); */
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
 }
-body{
-	font-family: Fira;
+@media (max-width:767px) {
+	*, *::after, *::before{cursor: default !important;}
+}
+@media (min-width:768px) and (max-width:991px) {
+	*, *::after, *::before{cursor: default !important;}
+}
+/*monitor*/
+@media (min-width:992px) and (max-width:1199px) {
+	.-dn-l{display: none;}
+	.-di-l{display: inherit;}
 }
 
-*, *::before, *::after{
-	font-family: inherit;
+/*large monitor*/
+@media (min-width:1200px) {
+	.-dn-l{display: none;}
+	.-di-l{display: inherit;}
 }
-
-.-bg-gray{background: #565151;}
-.-bg-iron{background: #b3a6aa;}
-.-bg-blue{background: #6695ef;}
-.-bg-orange{background: #e29047;}
-.-bg-dark{background:#2d2b2b;}
-.-bg-red{background: #ed4469;}
-.-bg-red2{background: #ed446845;}
-.-bg-red3{background: #ed446814;}
-
-.-gray{color: #565151;}
-.-blue{color: #6695ef;}
-.-orange{color: #e29047;}
-.-dark{color:#2d2b2b;}
 .-red{color: #ed4469;}
-
+.-hover-red:hover{color: #ed4469;}
 .-absolute-center{
 	left: 0;
 	right: 0;
 	top: 0;
 	bottom: 0;
 	margin: auto;
-}
-#play-button{
-	--size: 90px;
-	width: var(--size);
-	height: var(--size);
-	line-height: var(--size);
-}
-
-.center-circ-1{
-	--size: 130px;
-	width: var(--size);
-	height: var(--size);
-	transition: 0.3s all ease;
-}
-
-.center-circ-2{
-	--size: 200px;
-	width: var(--size);
-	height: var(--size);
-}
-
-#wrapper{
-	/* background: rgba(0,0,0,0.5); */
-}
-
-body{
-	padding: 0;
-	margin: 0;
-	/* color: #fff; 
-	background-color: #111; */
-	/* background-image: url('./images/tunnel2.jpg'); */
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
-	background-position: center;
-}
-
-
-/*phones*/
-@media (max-width:767px) {
-	/* turn off cursor on touch devices & prevent the nasties */
-	*, *::after, *::before{cursor: default !important;}
-}
-
-/*tablet*/
-@media (min-width:768px) and (max-width:991px) {
-	/* turn off cursor on touch devices & prevent the nasties */
-	*, *::after, *::before{cursor: default !important;}
 }
 .-top-3{top: 3em;}
 .-bottom-3{bottom: 3em;}
@@ -100,32 +56,120 @@ body{
 	overflow-wrap: break-word;
 	text-align: center;
 	text-transform: uppercase;
+	color: #aaa;
+}
+.-ease-in{
+	transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+#play-button{
+	--size: 90px;
+	width: var(--size);
+	height: var(--size);
+	line-height: var(--size);
+}
+#play-button.-active{
+	color: #fff;
+}
+
+#social-button{
+	transition-duration: 0.4s;
+	transition-property: all;
+}
+#social-button.-active{
+	color: #ed4469;
+	transform: rotate(135deg)
+}
+#menu{
+	opacity: 0;
+	transition-delay: 0.3s;
+	transition-duration: 0.2s;
+	transition-property: opacity;
+}
+#menu.-active{
+	opacity: 1;
+	z-index: 3;
+}
+.-bg-darken-7{background: rgba(0,0,0,0.7);}
+img.bg {
+
+	min-height: 100%;
+	min-width: 1024px;
+
+	width: 100%;
+	/* max-width: 100%; */
+	height: auto;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	filter: grayscale(100%);
+}
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+	img.bg {
+		left: 50%;
+		margin-left: -512px;   /* 50% */
+	}
+}
+
+.content{
+	width: 1024px;
+	max-width: 100vw;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	overflow: hidden;
 }
 
 </style>
 </head>
 <body class="athelas">
-	<div class="f4 absolute -down-word top-1 left-1">Realest</div>
-	<div class="f4 absolute -down-word bottom-1 right-1">Trappin</div>
-	<div class="f4 absolute -down-word -top-3 -right-3">C.R.E.A.M</div>
-	<div class="f4 absolute -down-word -bottom-3 -left-3">Limitless</div>
-	<div id="wrapper" class="z-1 absolute absolute--fill">
-		<div class="ma2 tc">
-			<h1 class="f1 fw1">Type 9</span></h1>
-			<div class="absolute br-100 -absolute-center center-circ-1"></div>
-			<div id="play-button" class="-red hover-near-white pointer absolute br-100 pl2 -absolute-center f1 tc bg-black">
-				<span class="fa fa-play"></span>
+	<div id="main" class="content z-1">
+		<img src="./images/tunnel1.jpg" class="bg absolute absolute--fill" />
+		<div class="-bg-darken-7 absolute absolute--fill"></div>
+		<div class="f4 absolute -down-word top-1 left-1">Realest</div>
+		<div class="f4 absolute -down-word bottom-1 right-1">Trappin</div>
+		<div class="f4 absolute -down-word -top-3 -right-3">C.R.E.A.M</div>
+		<div class="f4 absolute -down-word -bottom-3 -left-3">Limitless</div>
+		<div class="absolute absolute--fill z-2">
+			<div class="ma2 tc">
+				<h1 class="f1 fw1">Type 9</span></h1>
+				<div id="play-button" class="-red hover-near-white pointer absolute br-100 pl2 -absolute-center f1 tc">
+					<span class="fa fa-play"></span>
+				</div>
 			</div>
-			<div id="social-button" class="z-3 mv2 absolute bottom-0 ttc f1 w-100 pointer">+</div>
 		</div>
 	</div>
-	<div id="menu" class="absolute absolute--fill bg-white pa3 z-0 o-0">
-		<ul class="list f2 pl0">
-			<li class="mv4 mh2"><span class="fa fa-facebook-official"></span> facebook</li>
-			<li class="mv4 mh2"><span class="fa fa-twitter"></span> twitter</li>
-			<li class="mv4 mh2"><span class="fa fa-instagram"></span> instagram</li>
-			<li class="mv4 mh2"><span class="fa fa-soundcloud"></span> soundcloud</li>
+	<div id="large-side" class="absolute vh-100 top-0 right-0 pv3 pr4 tr z-1 -bg-darken-7 dn -di-l">
+		<ul id="large-list" class="list f2 pl0 outline-0">
+			<li class="mv4 mh2"><a class="link white -hover-red"href="#"/><span class="fa fa-facebook-official"></span> facebook</a></li>
+			<li class="mv4 mh2"><a class="link white -hover-red"href="#"/><span class="fa fa-twitter"></span> twitter</a></li>
+			<li class="mv4 mh2"><a class="link white -hover-red"href="#"/><span class="fa fa-instagram"></span> instagram</a></li>
+			<li class="mv4 mh2"><a class="link white -hover-red"href="#"/><span class="fa fa-soundcloud"></span> soundcloud</a></li>
+		</ul>			
+	</div>
+	<div id="menu" class="absolute absolute--fill pa3 bg-near-black tc">
+		<ul class="list f2 pl0 outline-0">
+			<li class="mv4 mh2"><a class="link white -hover-red"href="#"/><span class="fa fa-facebook-official"></span> facebook</a></li>
+			<li class="mv4 mh2"><a class="link white -hover-red"href="#"/><span class="fa fa-twitter"></span> twitter</a></li>
+			<li class="mv4 mh2"><a class="link white -hover-red"href="#"/><span class="fa fa-instagram"></span> instagram</a></li>
+			<li class="mv4 mh2"><a class="link white -hover-red"href="#"/><span class="fa fa-soundcloud"></span> soundcloud</a></li>
 		</ul>
 	</div>
+
+	<div id="social-button" class="z-3 mv2 fixed bottom-0 tc f1 w-100 pointer -dn-l">+</div>
+	<script>
+		const f = query => document.querySelector(query)
+		const a = query => document.querySelectorAll(query)
+
+		const btnPlay = f('#play-button')
+		const btnSocial = f('#social-button')
+		const menu = f('#menu')
+
+		btnSocial.addEventListener('click', function(){
+			menu.classList.toggle('-active')
+			btnSocial.classList.toggle('-active')
+		})
+	</script>
 </body>
 </html>
