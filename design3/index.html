@@ -7,7 +7,7 @@
 	<title>Type 9</title>
 
 	<link rel="stylesheet" href="./css/tachyons.min.css">
-	<link rel="stylesheet" href="./css/font-awesome.min.css">
+	<link rel="stylesheet" href="./css/materialdesignicons.min.css">
 <style>
 
 html{
@@ -61,29 +61,50 @@ html{
 	color: #aaa;
 }
 
-</style>
-</head>`
-<body class="athelas">
-	<div id="main-view">
-	</div>
-	<div id="side-view" class="">
-	</div>
+.-album{
+	max-width: 250px;
+}
 
+</style>
+</head>
+<body class="avenir">
+	<div id="main-view" class="white">
+		<div id="social-block" class="f1 tc pt2">
+			<a href="" class="mdi mdi-facebook white mh1"></a>
+			<a href="" class="mdi mdi-instagram white mh1"></a>
+			<a href="" class="mdi mdi-twitter white mh1"></a>
+			<a href="" class="mdi mdi-soundcloud white mh1"></a>
+			<a href="" class="mdi mdi-youtube-play white mh1"></a>
+		</div>
+		<div class="f1 avenir ma4 mt6">
+			Type 9
+		</div>
+	</div>
+	<div id="side-view" class="dn -di-l">
+	</div>
+	<div id="bottom-block" class="dn-ns dn-m dn-l fixed bottom-0 left-0 w-100 avenir f3 pa3">
+		<button class="fl white">Albums</button>
+		<button class="fr white">Tour</button>
+	</div>
+	<div id="album-box" class="fixed absolute--fill bg-black overflow-scroll tc pt5">
+		<div class="f3 pa3 bg-black w-100 fixed top-0 left-0 tl">
+			<span class="mdi mdi-arrow-left mr2"></span>
+			Albums
+		</div>
+		<div class="pa3">
+			<img class="-album" src="./images/album1.jpg" alt="">
+		</div>
+		<div class="pa3">
+			<img class="-album" src="./images/album2.jpg" alt="">
+		</div>
+		<div class="pa3">
+			<img class="-album" src="./images/album3.jpg" alt="">
+		</div>
+	</div>
 <script>
 
 const f = query => document.querySelector(query)
 
-const btnPlay = f('#play-button')
-const btnSocial = f('#social-button')
-const menu = f('#menu')
-
-btnSocial.addEventListener('click', function(){
-	menu.classList.toggle('-active')
-	btnSocial.classList.toggle('-active')
-})
-
-btnPlay.addEventListener('click', function(){
-})
 
 </script>
 </body>
