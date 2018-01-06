@@ -125,25 +125,25 @@ html{
 			<div class="ma2 tc">
 				<h1 class="f1 fw1">Type 9</span></h1>
 				<div id="play-button" class="-red hover-near-white pointer absolute br-100 pl2 -absolute-center f1 tc">
-					<span class="fa fa-play"></span>
+					<span id="play-icon" class="fa fa-play"></span>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div id="large-side" class="absolute vh-100 top-0 right-0 pv3 pr4 tr z-1 -bg-darken-7 dn -di-l">
 		<ul id="large-list" class="list f2 pl0 outline-0">
-			<li class="mv4 mh2"><a class="link white -hover-red"href="#"/><span class="fa fa-facebook-official"></span> facebook</a></li>
-			<li class="mv4 mh2"><a class="link white -hover-red"href="#"/><span class="fa fa-twitter"></span> twitter</a></li>
-			<li class="mv4 mh2"><a class="link white -hover-red"href="#"/><span class="fa fa-instagram"></span> instagram</a></li>
-			<li class="mv4 mh2"><a class="link white -hover-red"href="#"/><span class="fa fa-soundcloud"></span> soundcloud</a></li>
+			<li class="mv4 mh2"><a class="link white -hover-red"href="https://facebook.com"/><span class="fa fa-facebook-official"></span> facebook</a></li>
+			<li class="mv4 mh2"><a class="link white -hover-red"href="https://twitter.com"/><span class="fa fa-twitter"></span> twitter</a></li>
+			<li class="mv4 mh2"><a class="link white -hover-red"href="https://instagram.com"/><span class="fa fa-instagram"></span> instagram</a></li>
+			<li class="mv4 mh2"><a class="link white -hover-red"href="https://soundcloud.com/"/><span class="fa fa-soundcloud"></span> soundcloud</a></li>
 		</ul>			
 	</div>
 	<div id="menu" class="absolute absolute--fill pa3 bg-near-black tc">
 		<ul class="list f2 pl0 outline-0">
-			<li class="mv4 mh2"><a class="link white -hover-red"href="#"/><span class="fa fa-facebook-official"></span> facebook</a></li>
-			<li class="mv4 mh2"><a class="link white -hover-red"href="#"/><span class="fa fa-twitter"></span> twitter</a></li>
-			<li class="mv4 mh2"><a class="link white -hover-red"href="#"/><span class="fa fa-instagram"></span> instagram</a></li>
-			<li class="mv4 mh2"><a class="link white -hover-red"href="#"/><span class="fa fa-soundcloud"></span> soundcloud</a></li>
+			<li class="mv4 mh2"><a class="link white -hover-red"href="https://facebook.com"/><span class="fa fa-facebook-official"></span> facebook</a></li>
+			<li class="mv4 mh2"><a class="link white -hover-red"href="https://twitter.com"/><span class="fa fa-twitter"></span> twitter</a></li>
+			<li class="mv4 mh2"><a class="link white -hover-red"href="https://instagram.com"/><span class="fa fa-instagram"></span> instagram</a></li>
+			<li class="mv4 mh2"><a class="link white -hover-red"href="https://soundcloud.com"/><span class="fa fa-soundcloud"></span> soundcloud</a></li>
 		</ul>
 	</div>
 
@@ -151,13 +151,29 @@ html{
 	<script>
 		const f = query => document.querySelector(query)
 
+		const track = new Audio('./track.mp3')
 		const btnPlay = f('#play-button')
+		const playIcon = f('#play-icon')
 		const btnSocial = f('#social-button')
 		const menu = f('#menu')
+		let trackPlaying = false
 
 		btnSocial.addEventListener('click', function(){
 			menu.classList.toggle('-active')
 			btnSocial.classList.toggle('-active')
+		})
+
+		btnPlay.addEventListener('click', function(){
+			if(!trackPlaying){
+				track.play()
+				playIcon.classList.remove('fa-play')
+				playIcon.classList.add('fa-pause')
+			}else{
+				track.pause()
+				playIcon.classList.add('fa-play')
+				playIcon.classList.remove('fa-pause')
+			}
+			trackPlaying = !trackPlaying
 		})
 	</script>
 </body>
