@@ -65,6 +65,17 @@ html{
 	max-width: 250px;
 }
 
+.-event-box{
+	height: 180px;
+	width: 100%;
+}
+.-event-img{
+	width: 120px;
+	height: 180px;
+}
+.-event-info{
+	width: calc(100% - 120px);
+}
 </style>
 </head>
 <body class="avenir">
@@ -84,10 +95,10 @@ html{
 	</div>
 	<div id="bottom-block" class="dn-ns dn-m dn-l fixed bottom-0 left-0 w-100 avenir f3 pa3">
 		<button class="fl white">Albums</button>
-		<button class="fr white">Tour</button>
+		<button class="fr white">Events</button>
 	</div>
-	<div id="album-box" class="fixed absolute--fill bg-black overflow-scroll tc pt5">
-		<div class="f3 pa3 bg-black w-100 fixed top-0 left-0 tl">
+	<div id="album-box" class="fixed absolute--fill bg-black overflow-scroll tc pt5 dn">
+		<div class="f3 pa3 bg-black w-100 fixed top-0 left-0 tl z-1">
 			<span class="mdi mdi-arrow-left mr2"></span>
 			Albums
 		</div>
@@ -99,6 +110,43 @@ html{
 		</div>
 		<div class="pa3">
 			<img class="-album" src="./images/album3.jpg" alt="">
+		</div>
+	</div>
+
+	<div id="event-box" class="fixed absolute--fill bg-black overflow-scroll tl pt5">
+		<div class="f3 pa3 bg-black w-100 fixed top-0 left-0 z-1">
+			<span class="mdi mdi-arrow-left mr2"></span>
+			Events
+		</div>
+
+		<div class="-event-box relative pa2 mb4">
+			<img class="-event-img fl" src="./images/event1.png" alt="">
+			<div class="-event-info fl f4 relative h-100 overflow-hidden">
+				<div class="pa2">One Night Only</div>
+				<div class="pa2">East Rand Mall</div>
+				<div class="pa2 f4">21 March 2018</div>
+				<button class="absolute bottom-0 f4 right-1 mr4 white bg-black b--dark-red pa2">Grab A Ticket</button>
+			</div>
+		</div>
+
+		<div class="-event-box relative pa2 mb4">
+			<img class="-event-img fl" src="./images/event2.jpg" alt="">
+			<div class="-event-info fl f4 relative h-100 overflow-hidden">
+				<div class="pa2">Unwound</div>
+				<div class="pa2">Stanford Hall</div>
+				<div class="pa2 f4">13 May 2018</div>
+				<button class="absolute bottom-0 f4 right-1 mr4 white bg-black b--dark-red pa2">Grab A Ticket</button>
+			</div>
+		</div>
+
+		<div class="-event-box relative pa2 mb4">
+			<img class="-event-img fl" src="./images/event3.jpg" alt="">
+			<div class="-event-info fl f4 relative h-100 overflow-hidden">
+				<div class="pa2">Unwound</div>
+				<div class="pa2">Joburg Arena</div>
+				<div class="pa2 f4">29 July 2018</div>
+				<button class="absolute bottom-0 f4 right-1 mr4 white bg-black b--dark-red pa2">Grab A Ticket</button>
+			</div>
 		</div>
 	</div>
 <script>
