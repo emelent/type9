@@ -65,9 +65,13 @@ html{
 	max-width: 250px;
 }
 
-.-event-box{
-	height: 180px;
+.-event{
+	height: 195px;
 	width: 100%;
+}
+
+.-event:nth-child(even){
+	background: #111;
 }
 .-event-img{
 	width: 120px;
@@ -76,16 +80,28 @@ html{
 .-event-info{
 	width: calc(100% - 120px);
 }
+
+.-background{
+	height:80vh;
+	width:100%;
+}
+
+.-background img{
+	height: 100%;
+}
 </style>
 </head>
 <body class="avenir">
-	<div id="main-view" class="white">
+	<div class="-background pv5 fixed absolute--fill z-1 h-75 -absolute-center">
+		<img src="./images/tunnel.jpg" alt="">
+	</div>
+	<div id="main-view" class="white fixed absolute--fill z-2">
 		<div id="social-block" class="f1 tc pt2">
-			<a href="" class="mdi mdi-facebook white mh1"></a>
-			<a href="" class="mdi mdi-instagram white mh1"></a>
-			<a href="" class="mdi mdi-twitter white mh1"></a>
-			<a href="" class="mdi mdi-soundcloud white mh1"></a>
-			<a href="" class="mdi mdi-youtube-play white mh1"></a>
+			<a href="" class="mdi mdi-facebook white"></a>
+			<a href="" class="mdi mdi-instagram white"></a>
+			<a href="" class="mdi mdi-twitter white"></a>
+			<a href="" class="mdi mdi-soundcloud white"></a>
+			<a href="" class="mdi mdi-youtube-play white"></a>
 		</div>
 		<div class="f1 avenir ma4 mt6">
 			Type 9
@@ -93,12 +109,12 @@ html{
 	</div>
 	<div id="side-view" class="dn -di-l">
 	</div>
-	<div id="bottom-block" class="dn-ns dn-m dn-l fixed bottom-0 left-0 w-100 avenir f3 pa3">
-		<button class="fl white">Albums</button>
-		<button class="fr white">Events</button>
+	<div id="bottom-block" class="z-2 dn-ns dn-m dn-l fixed bottom-0 left-0 w-100 avenir f3 pa3">
+		<button id="show-albums" class="fl b--none bg-black white">Albums</button>
+		<button id="show-events" class="fr b--none bg-black white">Events</button>
 	</div>
-	<div id="album-box" class="fixed absolute--fill bg-black overflow-scroll tc pt5 dn">
-		<div class="f3 pa3 bg-black w-100 fixed top-0 left-0 tl z-1">
+	<div id="album-box" class="z-3 fixed absolute--fill bg-black overflow-scroll tc pt5 dn">
+		<div id="hide-albums" class="f3 pa3 bg-black w-100 fixed top-0 left-0 tl z-1">
 			<span class="mdi mdi-arrow-left mr2"></span>
 			Albums
 		</div>
@@ -113,46 +129,64 @@ html{
 		</div>
 	</div>
 
-	<div id="event-box" class="fixed absolute--fill bg-black overflow-scroll tl pt5">
-		<div class="f3 pa3 bg-black w-100 fixed top-0 left-0 z-1">
+	<div id="event-box" class="z-3 fixed absolute--fill bg-black overflow-scroll tl pt5 dn">
+		<div id="hide-events" class="f3 pa3 bg-black w-100 fixed top-0 left-0 z-1">
 			<span class="mdi mdi-arrow-left mr2"></span>
 			Events
 		</div>
 
-		<div class="-event-box relative pa2 mb4">
+		<div class="-event relative pa2 mb4">
 			<img class="-event-img fl" src="./images/event1.png" alt="">
 			<div class="-event-info fl f4 relative h-100 overflow-hidden">
 				<div class="pa2">One Night Only</div>
 				<div class="pa2">East Rand Mall</div>
 				<div class="pa2 f4">21 March 2018</div>
-				<button class="absolute bottom-0 f4 right-1 mr4 white bg-black b--dark-red pa2">Grab A Ticket</button>
 			</div>
 		</div>
 
-		<div class="-event-box relative pa2 mb4">
+		<div class="-event relative pa2 mb4">
 			<img class="-event-img fl" src="./images/event2.jpg" alt="">
 			<div class="-event-info fl f4 relative h-100 overflow-hidden">
 				<div class="pa2">Unwound</div>
 				<div class="pa2">Stanford Hall</div>
 				<div class="pa2 f4">13 May 2018</div>
-				<button class="absolute bottom-0 f4 right-1 mr4 white bg-black b--dark-red pa2">Grab A Ticket</button>
 			</div>
 		</div>
 
-		<div class="-event-box relative pa2 mb4">
+		<div class="-event relative pa2 mb4">
 			<img class="-event-img fl" src="./images/event3.jpg" alt="">
 			<div class="-event-info fl f4 relative h-100 overflow-hidden">
 				<div class="pa2">Unwound</div>
 				<div class="pa2">Joburg Arena</div>
 				<div class="pa2 f4">29 July 2018</div>
-				<button class="absolute bottom-0 f4 right-1 mr4 white bg-black b--dark-red pa2">Grab A Ticket</button>
 			</div>
 		</div>
 	</div>
 <script>
 
 const f = query => document.querySelector(query)
+const btnShowEvents = f('#show-events')
+const btnShowAlbums = f('#show-albums')
+const btnHideEvents = f('#hide-events')
+const btnHideAlbums = f('#hide-albums')
+const eventBox = f('#event-box')
+const albumBox = f('#album-box')
 
+btnShowEvents.addEventListener('click', () => {
+	eventBox.classList.remove('dn')
+})
+
+btnHideEvents.addEventListener('click', () => {
+	eventBox.classList.add('dn')
+})
+
+btnShowAlbums.addEventListener('click', () => {
+	albumBox.classList.remove('dn')
+})
+
+btnHideAlbums.addEventListener('click', () => {
+	albumBox.classList.add('dn')
+})
 
 </script>
 </body>
