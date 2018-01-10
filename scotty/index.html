@@ -74,6 +74,8 @@ body{
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
+
+	width:40px;
 }
 
 .-mb-bl{
@@ -96,6 +98,7 @@ body{
 	bottom: 0;
 	left: 0;
 	right: 0;
+	width:40px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
@@ -109,7 +112,7 @@ body{
 	z-index: 1;
 	top: 100vh;
 	left: 0;
-	uadding-top: 150px;
+	padding-top: 150px;
 
 	height: var(--social-height);
 	width: 100vw;
@@ -139,18 +142,12 @@ body{
 	min-width: 1024px;
 	width: 100%;
 	height: auto;
-	filter: grayscale(90%);
 }
 
-.-bg-active{
+.-bg.-blur .-bg-img{
+	filter: blur(10px);
+}
 
-}
-@media screen and (max-width: 1024px) {
-	#bg {
-		left: 50%;
-		margin-left: -512px;
-	}
-}
 .-bg-overlay{
 	position: absolute;
 	top: 0;
@@ -166,6 +163,104 @@ body{
 	margin: 10px;
 }
 
+.-view{
+	display: none;
+	position: absolute;
+	overflow: scroll;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	text-align: center;
+
+
+	height: 100%;
+}
+
+.-view.-active{
+	display: inherit;
+}
+
+#view-tour, #view-video, #view-other{
+	background: #000;
+}
+
+.-album{
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left:0;
+	right:0;
+	margin: auto;
+	max-height: 80%;
+	max-width: 80%;
+}
+.-tour-box{
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left:0;
+	right:0;
+	margin: auto;
+	height: 80%;
+	width: 80%;
+
+	color: #fff;
+	font-size: 18px;
+	text-transform: uppercase;
+	text-align: left;
+}
+
+.-tour-sep{
+	height: 30px;
+}
+.-tour-col{
+	overflow: hidden;
+	float: left;
+}
+
+.-tour-date{
+	width: 20%;
+}
+
+.-tour-location{
+	width: 30%;
+}
+
+.-tour-venue{
+	width: 30%;
+}
+
+.-tour-buy{
+	width: 20%;
+}
+
+@media (max-width:991px) {
+	.-tour-col{
+		float: none;
+	}
+	.-tour-box{
+		text-align: center;
+	}
+	.-tour-sep{
+		height: 40px;
+	}
+	.-tour-date, .-tour-location, .-tour-venue, .-tour-buy{
+		width: 100%;
+		padding: 5px;
+	}
+}
+
+#video{
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left:0;
+	right:0;
+	margin: auto;
+	max-width: 100%;
+}
 #mail-box{
 	color: #eee;
 	width: 100%;
@@ -189,16 +284,51 @@ body{
 </head>
 <body>
 	<div class="-wrapper">
-		<div class="-bg">
+		<!--background image-->
+		<div id="bg" class="-bg">
 			<img class="-bg-img" src="./images/2.jpeg" alt="">
 			<div class="-bg-overlay"></div>
 		</div>
+
+		
+		<!--view content-->
+		<div id="view-album" class="-view">
+			<a href="">
+				<img class="-album" src="./images/album1.jpg" alt="">
+			</a>
+		</div>
+		<div id="view-video" class="-view">
+			<video id="video" src="./video.mp4"></video>
+		</div>
+		<div id="view-tour" class="-view">
+			<div class="-tour-box">
+				<div class="-tour-date -tour-col">21 Feb</div>
+				<div class="-tour-location -tour-col">Germiston, GP</div>
+				<div class="-tour-venue -tour-col">Golden Walk</div>
+				<div class="-tour-buy -tour-col">Buy</div>
+				<div class="-tour-sep -tour-col"></div>
+
+				<div class="-tour-date -tour-col">18 Apr</div>
+				<div class="-tour-location -tour-col">Dinwiddie, GP</div>
+				<div class="-tour-venue -tour-col">Stone Arch</div>
+				<div class="-tour-buy -tour-col">Buy</div>
+				<div class="-tour-sep -tour-col"></div>
+			</div>
+			
+		</div>
+		<div id="view-other" class="-view">
+			<div style="margin: 60% 0;color: #fff;">STAY TUNED</div>
+		</div>
+
+		<!--buttons-->
 		<div id="btn-tour" class="-mb -mb-tl">TOUR</div>
 		<div id="btn-other" class="-mb -mb-tr">OTHER</div>
 		<div id="btn-home" class="-mb -mb-tc">HOME</div>
 		<div id="btn-album" class="-mb -mb-bl -mb-b">ALBUM</div>
 		<div id="btn-video" class="-mb -mb-br -mb-b">VIDEO</div>
 	</div>		
+
+	<!--social media links-->
 	<div class="-social-box">
 		<input id="mail-box" type="email" placeholder="ENTER EMAIL TO SUBSCRIBE"><br/><br/>
 		<a href="" class="-ln"><span class="mdi -icon mdi-facebook"></span></a>
@@ -207,27 +337,50 @@ body{
 		<a href="" class="-ln"><span class="mdi -icon mdi-soundcloud"></span></a>
 		<a href="" class="-ln"><span class="mdi -icon mdi-youtube-play"></span></a>
 	</div>
-<div id="btn-social" style="font-size: 16px;" class="-mb -mb-bc">+</div>
+	<div id="btn-social" style="font-size: 16px;" class="-mb -mb-bc">+</div>
 <script>
 
 	const f = q => document.querySelector(q)
+	const a = q => document.querySelectorAll(q)
+	const blurBg = () => divBg.classList.add('-blur')
+	const unBlurBg = () => divBg.classList.remove('-blur')
+	const view = name => () => {
+		hideActiveView()
+		blurBg()
+		f('#view-'+ name).classList.add('-active')
+		if(name === 'video')
+			video.play()
+	}
+
+	const hideActiveView = () => {
+		video.pause()
+		unBlurBg()
+		const active = f('.-view.-active')
+		if(active) 
+			active.classList.remove('-active')
+	}
+
+	const video = f('#video')
+	const divBg = f('#bg')
 	const btnSocial = f('#btn-social')
-	
+	const btnHome = f('#btn-home')
+	const btnAlbum= f('#btn-album')
+	const btnVideo = f('#btn-video')
+	const btnOther = f('#btn-other')
+	const btnTour = f('#btn-tour')
+
+	btnHome.addEventListener('click', hideActiveView)
+	btnAlbum.addEventListener('click', view('album'))
+	btnVideo.addEventListener('click', view('video'))
+	btnOther.addEventListener('click', view('other'))
+	btnTour.addEventListener('click', view('tour'))
+
 	btnSocial.addEventListener('click', () => {
-		const socBox = f('.-social-box')
-		const wrapper = f('.-wrapper')
-		const btns = document.querySelectorAll('.-mb-b')
-		if(socBox.classList.contains('-active')){
-			socBox.classList.remove('-active')
-			wrapper.classList.remove('-min')
-			btnSocial.classList.remove('-active')
-			btns.forEach(btn => btn.classList.remove('-min'))
-		}else{
-			socBox.classList.add('-active')
-			wrapper.classList.add('-min')
-			btnSocial.classList.add('-active')
-			btns.forEach(btn => btn.classList.add('-min'))
-		}
+		btnSocial.classList.toggle('-active')
+		f('.-social-box').classList.toggle('-active')
+		f('.-wrapper').classList.toggle('-min')
+		a('.-mb-b').forEach(btn => btn.classList.toggle('-min'))
+		divBg.classList.toggle('-blur')
 	})
 </script>
 </body>
