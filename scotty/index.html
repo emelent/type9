@@ -66,6 +66,16 @@ body{
 	right: 0;
 	text-align: right;
 }
+
+.-mb-tc{
+	top: 0;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
 .-mb-bl{
 	bottom: 0;
 	left: 0;
@@ -113,10 +123,9 @@ body{
 }
 
 .-bg{
-	display: none;
 	position: absolute;
-	top: 20%;
-	bottom: 20%;
+	top: 0%;
+	bottom: 0%;
 	left: 0;
 	right: 0;
 	margin: auto;
@@ -132,6 +141,10 @@ body{
 	height: auto;
 	filter: grayscale(90%);
 }
+
+.-bg-active{
+
+}
 @media screen and (max-width: 1024px) {
 	#bg {
 		left: 50%;
@@ -145,7 +158,7 @@ body{
 	right: 0;
 	bottom: 0;
 
-	background: rgba(0,0,0,0.4);
+	background: rgba(0,0,0,0.5);
 }
 
 .-icon{
@@ -181,9 +194,10 @@ body{
 			<div class="-bg-overlay"></div>
 		</div>
 		<div id="btn-tour" class="-mb -mb-tl">TOUR</div>
-		<div id="btn-album" class="-mb -mb-tr">ALBUM</div>
-		<div id="btn-video" class="-mb -mb-bl -mb-b">VIDEO</div>
-		<div id="btn-other" class="-mb -mb-br -mb-b">OTHER</div>
+		<div id="btn-other" class="-mb -mb-tr">OTHER</div>
+		<div id="btn-home" class="-mb -mb-tc">HOME</div>
+		<div id="btn-album" class="-mb -mb-bl -mb-b">ALBUM</div>
+		<div id="btn-video" class="-mb -mb-br -mb-b">VIDEO</div>
 	</div>		
 	<div class="-social-box">
 		<input id="mail-box" type="email" placeholder="ENTER EMAIL TO SUBSCRIBE"><br/><br/>
