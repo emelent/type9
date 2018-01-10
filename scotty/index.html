@@ -32,7 +32,6 @@ body{
 	
 	height: 100%;
 	width: 100vw;
-	transition: 0.4s ease height;
 }
 
 .-wrapper.-min{
@@ -79,9 +78,6 @@ body{
 
 }
 
-.-mb-b{
-	transition: 0.4s ease bottom;
-}
 .-mb-b.-min{
 	bottom: var(--social-height);
 }
@@ -100,16 +96,16 @@ body{
 }
 .-social-box{
 	position: fixed;
+	z-index: 1;
 	top: 100vh;
 	left: 0;
-	z-index: 1;
+	uadding-top: 150px;
 
 	height: var(--social-height);
 	width: 100vw;
 
 	text-align: center;
 	padding: 5px 0;
-	transition: 0.4s ease top;
 }
 
 .-social-box.-active{
@@ -117,9 +113,10 @@ body{
 }
 
 .-bg{
+	display: none;
 	position: absolute;
-	top: 50px;
-	bottom: 50px;
+	top: 20%;
+	bottom: 20%;
 	left: 0;
 	right: 0;
 	margin: auto;
@@ -133,7 +130,7 @@ body{
 	min-width: 1024px;
 	width: 100%;
 	height: auto;
-	filter: grayscale(70%);
+	filter: grayscale(90%);
 }
 @media screen and (max-width: 1024px) {
 	#bg {
@@ -151,8 +148,21 @@ body{
 	background: rgba(0,0,0,0.4);
 }
 
-#btn-social{
-	transition: 0.4s ease transform;
+.-icon{
+	font-size: 28px;
+	margin: 10px;
+}
+
+#mail-box{
+	color: #eee;
+	width: 100%;
+	background: transparent;
+	outline: #333;
+	font-size: 16px;
+	border: none;
+	margin-top: 40px;
+	margin-bottom: 10px;
+	text-align: center;
 }
 
 #btn-social.-active{
@@ -176,13 +186,14 @@ body{
 		<div id="btn-other" class="-mb -mb-br -mb-b">OTHER</div>
 	</div>		
 	<div class="-social-box">
-		<a href="" class="-ln"><span class="mdi mdi-36px mdi-facebook"></span></a>
-		<a href="" class="-ln"><span class="mdi mdi-36px mdi-twitter"></span></a>
-		<a href="" class="-ln"><span class="mdi mdi-36px mdi-instagram"></span></a>
-		<a href="" class="-ln"><span class="mdi mdi-36px mdi-soundcloud"></span></a>
-		<a href="" class="-ln"><span class="mdi mdi-36px mdi-youtube-play"></span></a>
+		<input id="mail-box" type="email" placeholder="ENTER EMAIL TO SUBSCRIBE"><br/><br/>
+		<a href="" class="-ln"><span class="mdi -icon mdi-facebook"></span></a>
+		<a href="" class="-ln"><span class="mdi -icon mdi-twitter"></span></a>
+		<a href="" class="-ln"><span class="mdi -icon mdi-instagram"></span></a>
+		<a href="" class="-ln"><span class="mdi -icon mdi-soundcloud"></span></a>
+		<a href="" class="-ln"><span class="mdi -icon mdi-youtube-play"></span></a>
 	</div>
-<div id="btn-social" class="-mb -mb-bc">+</div>
+<div id="btn-social" style="font-size: 16px;" class="-mb -mb-bc">+</div>
 <script>
 
 	const f = q => document.querySelector(q)
