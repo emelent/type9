@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Type 9 Designs</title>
+	<link rel="stylesheet" href="./css/materialdesignicons.min.css">
+
+<style>
+
+html{
+	background: black;
+	color: #888;
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body{
+	--social-height: 200px;
+	--wrapper-min-height: calc(100vh - var(--social-height));
+}
+
+.-wrapper{
+	position: fixed;
+	left: 0;
+	top: 0;
+	
+	height: 100vh;
+	width: 100vw;
+	transition: 0.4s ease height;
+}
+
+.-wrapper.-min{
+	height: var(--wrapper-min-height);	
+}
+
+
+.-mb{
+	/*layout*/
+	position: absolute;
+	padding: 20px;
+	
+	/*dimensions*/
+	width: 150px;
+	height: 80px;
+
+	/*theme*/
+	outline: none;
+	background: transparent;	
+	border: none;
+	color: #fff;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.-mb-tl{
+	top: 0;
+	right: 0;
+}
+.-mb-tr{
+	top: 0;	
+	left: 0;
+}
+.-mb-bl{
+	bottom: 0;
+	left: 0;
+}
+.-mb-br{
+	bottom: 0;
+	right: 0;
+}
+.-mb-bc{
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.-ln{
+	color: #fff;
+}
+.-social-box{
+	position: fixed;
+	top: 100vh;
+	left: 0;
+
+	height: var(--social-height);
+	width: 100vw;
+
+	text-align: center;
+	padding: 5px 0;
+	transition: 0.4s ease top;
+}
+
+.-social-box.-active{
+	top: var(--wrapper-min-height);
+}
+
+.-bg{
+	position: absolute;
+	top: 15vh;
+	bottom: 15vh;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+
+	background-color: pink;
+}
+
+.-bg-img{
+	position: relative;
+	min-width: 100vw;
+	filter: grayscale(70%);
+}
+.-bg-overlay{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	background: rgba(0,0,0,0.4);
+}
+
+#btn-social{
+	transition: 0.4s ease transform;
+}
+
+#btn-social.-active{
+	transform: rotate(45deg);
+}
+</style>
+</head>
+<body>
+	<div class="-wrapper">
+		<div class="-bg">
+			<img class="-bg-img" src="./images/2.jpeg" alt="">
+			<div class="-bg-overlay"></div>
+		</div>
+		<button id="btn-tour" class="-mb -mb-tl">TOUR</button>
+		<button id="btn-album" class="-mb -mb-tr">ALBUM</button>
+		<button id="btn-video" class="-mb -mb-bl">VIDEO</button>
+		<button id="btn-other" class="-mb -mb-br">OTHER</button>
+		<button id="btn-social" class="-mb -mb-bc">+</button>
+	</div>		
+	<div class="-social-box">
+		<a href="" class="-ln"><span class="mdi mdi-36px mdi-facebook"></span></a>
+		<a href="" class="-ln"><span class="mdi mdi-36px mdi-twitter"></span></a>
+		<a href="" class="-ln"><span class="mdi mdi-36px mdi-instagram"></span></a>
+		<a href="" class="-ln"><span class="mdi mdi-36px mdi-soundcloud"></span></a>
+		<a href="" class="-ln"><span class="mdi mdi-36px mdi-youtube-play"></span></a>
+	</div>
+<script>
+
+	const f = q => document.querySelector(q)
+	const btnSocial = f('#btn-social')
+	
+	btnSocial.addEventListener('click', () => {
+		const socBox = f('.-social-box')
+		const wrapper = f('.-wrapper')
+		console.log('socBox =>', socBox)
+		if(socBox.classList.contains('-active')){
+			socBox.classList.remove('-active')
+			wrapper.classList.remove('-min')
+			btnSocial.classList.remove('-active')
+		}else{
+			socBox.classList.add('-active')
+			wrapper.classList.add('-min')
+			btnSocial.classList.add('-active')
+		}
+	})
+</script>
+</body>
+</html>
