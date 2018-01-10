@@ -13,6 +13,7 @@ html{
 	background: black;
 	color: #888;
 	box-sizing: border-box;
+	font-family: Sans-Serif;
 }
 
 *, *:before, *:after {
@@ -21,7 +22,7 @@ html{
 
 body{
 	--social-height: 200px;
-	--wrapper-min-height: calc(100vh - var(--social-height));
+	--wrapper-min-height: calc(100% - var(--social-height));
 }
 
 .-wrapper{
@@ -29,7 +30,7 @@ body{
 	left: 0;
 	top: 0;
 	
-	height: 100vh;
+	height: 100%;
 	width: 100vw;
 	transition: 0.4s ease height;
 }
@@ -41,12 +42,11 @@ body{
 
 .-mb{
 	/*layout*/
-	position: absolute;
-	padding: 20px;
+	position: fixed;
+	padding: 5px;
+	z-index: 2;
 	
 	/*dimensions*/
-	width: 150px;
-	height: 80px;
 
 	/*theme*/
 	outline: none;
@@ -59,26 +59,40 @@ body{
 
 .-mb-tl{
 	top: 0;
-	right: 0;
+	left: 0;
+	text-align: left;
 }
 .-mb-tr{
 	top: 0;	
-	left: 0;
+	right: 0;
+	text-align: right;
 }
 .-mb-bl{
 	bottom: 0;
 	left: 0;
+	text-align: left;
 }
 .-mb-br{
 	bottom: 0;
 	right: 0;
+	text-align: right;
+
 }
+
+.-mb-b{
+	transition: 0.4s ease bottom;
+}
+.-mb-b.-min{
+	bottom: var(--social-height);
+}
+
 .-mb-bc{
 	bottom: 0;
 	left: 0;
 	right: 0;
 	margin-left: auto;
 	margin-right: auto;
+	text-align: center;
 }
 
 .-ln{
@@ -88,6 +102,7 @@ body{
 	position: fixed;
 	top: 100vh;
 	left: 0;
+	z-index: 1;
 
 	height: var(--social-height);
 	width: 100vw;
@@ -103,12 +118,11 @@ body{
 
 .-bg{
 	position: absolute;
-	top: 0;
-	bottom: 0;
+	top: 50px;
+	bottom: 50px;
 	left: 0;
 	right: 0;
-	height: 70vh;
-	margin: auto 0;
+	margin: auto;
 	overflow: hidden;
 
 	background-color: pink;
@@ -136,6 +150,10 @@ body{
 #btn-social.-active{
 	transform: rotate(45deg);
 }
+
+@media (max-width:991px) {
+	*, *::after, *::before{cursor: default !important;}
+}
 </style>
 </head>
 <body>
@@ -144,11 +162,10 @@ body{
 			<img class="-bg-img" src="./images/2.jpeg" alt="">
 			<div class="-bg-overlay"></div>
 		</div>
-		<button id="btn-tour" class="-mb -mb-tl">TOUR</button>
-		<button id="btn-album" class="-mb -mb-tr">ALBUM</button>
-		<button id="btn-video" class="-mb -mb-bl">VIDEO</button>
-		<button id="btn-other" class="-mb -mb-br">OTHER</button>
-		<button id="btn-social" class="-mb -mb-bc">+</button>
+		<div id="btn-tour" class="-mb -mb-tl">TOUR</div>
+		<div id="btn-album" class="-mb -mb-tr">ALBUM</div>
+		<div id="btn-video" class="-mb -mb-bl -mb-b">VIDEO</div>
+		<div id="btn-other" class="-mb -mb-br -mb-b">OTHER</div>
 	</div>		
 	<div class="-social-box">
 		<a href="" class="-ln"><span class="mdi mdi-36px mdi-facebook"></span></a>
@@ -157,6 +174,7 @@ body{
 		<a href="" class="-ln"><span class="mdi mdi-36px mdi-soundcloud"></span></a>
 		<a href="" class="-ln"><span class="mdi mdi-36px mdi-youtube-play"></span></a>
 	</div>
+<div id="btn-social" class="-mb -mb-bc">+</div>
 <script>
 
 	const f = q => document.querySelector(q)
@@ -165,15 +183,17 @@ body{
 	btnSocial.addEventListener('click', () => {
 		const socBox = f('.-social-box')
 		const wrapper = f('.-wrapper')
-		console.log('socBox =>', socBox)
+		const btns = document.querySelectorAll('.-mb-b')
 		if(socBox.classList.contains('-active')){
 			socBox.classList.remove('-active')
 			wrapper.classList.remove('-min')
 			btnSocial.classList.remove('-active')
+			btns.forEach(btn => btn.classList.remove('-min'))
 		}else{
 			socBox.classList.add('-active')
 			wrapper.classList.add('-min')
 			btnSocial.classList.add('-active')
+			btns.forEach(btn => btn.classList.add('-min'))
 		}
 	})
 </script>
