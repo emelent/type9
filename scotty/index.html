@@ -380,7 +380,8 @@ body{
 		f('.-social-box').classList.toggle('-active')
 		f('.-wrapper').classList.toggle('-min')
 		a('.-mb-b').forEach(btn => btn.classList.toggle('-min'))
-		divBg.classList.toggle('-blur')
+		if(!f('.-view.-active'))
+			divBg.classList.toggle('-blur')
 	})
 </script>
 </body>
