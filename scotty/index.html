@@ -55,6 +55,10 @@ body{
 	cursor: pointer;
 }
 
+.-mb.-invert{
+	color: #fff !important;
+}
+
 .-mb-tl{
 	top: 0;
 	left: 0;
@@ -318,7 +322,7 @@ body{
 		</div>
 		<div id="view-video" class="-view">
 			<!--<video id="video" src="./video.mp4"></video>-->
-			<iframe width="854" height="480" src="https://www.youtube.com/embed/bUjytGcdFdk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			<iframe id="video" width="854" height="480" src="https://www.youtube.com/embed/bUjytGcdFdk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 		</div>
 		<div id="view-tour" class="-view">
 			<div class="-tour-box">
@@ -371,13 +375,14 @@ body{
 		btnHome.classList.add('-active')
 		f('#btn-home span').classList.remove('mdi-equal')
 		f('#btn-home span').classList.add('mdi-close')
-		//if(name === 'video')
-		//	video.play()
+		if(name === 'video'){
+			a('.-mb').forEach(el => el.classList.add('-invert'))
+		}
 	}
 
 	const hideActiveView = () => {
-		//video.pause()
 		btnHome.classList.remove('-active')
+		a('.-mb').forEach(el => el.classList.remove('-invert'))
 		f('#btn-home span').classList.add('mdi-equal')
 		f('#btn-home span').classList.remove('mdi-close')
 		unBlurBg()
@@ -386,7 +391,6 @@ body{
 			active.classList.remove('-active')
 	}
 
-	const video = f('#video') 
 	const divBg = f('#bg')
 	const btnHome = f('#btn-home')
 	const btnAlbum= f('#btn-album')
