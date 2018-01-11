@@ -11,7 +11,6 @@
 
 html{
 	background: black;
-	color: #888;
 	box-sizing: border-box;
 	font-family: Sans-Serif;
 }
@@ -21,7 +20,7 @@ html{
 }
 
 body{
-	--social-height: 200px;
+	--social-height: 80px;
 	--wrapper-min-height: calc(100% - var(--social-height));
 }
 
@@ -42,8 +41,8 @@ body{
 .-mb{
 	/*layout*/
 	position: fixed;
-	padding: 5px;
-	z-index: 2;
+	padding: 10px;
+	z-index: 4;
 	
 	/*dimensions*/
 
@@ -51,7 +50,7 @@ body{
 	outline: none;
 	background: transparent;	
 	border: none;
-	color: #fff;
+	color: #000;
 	font-size: 14px;
 	cursor: pointer;
 }
@@ -106,6 +105,15 @@ body{
 
 .-ln{
 	color: #fff;
+	margin: 15px;
+}
+
+.-ln-circ{
+	color: #a179dc;
+}
+
+.-ln.-active{
+//	color: #000;
 }
 .-social-box{
 	position: fixed;
@@ -133,8 +141,9 @@ body{
 	right: 0;
 	margin: auto;
 	overflow: hidden;
+	text-align:center;
 
-	background-color: pink;
+	background-color: white;
 }
 
 .-bg-img{
@@ -144,7 +153,7 @@ body{
 	height: auto;
 }
 
-.-bg.-blur .-bg-img{
+.-bg.-blur img{
 	filter: blur(10px);
 }
 
@@ -160,7 +169,6 @@ body{
 
 .-icon{
 	font-size: 28px;
-	margin: 10px;
 }
 
 .-view{
@@ -193,8 +201,8 @@ body{
 	left:0;
 	right:0;
 	margin: auto;
-	max-height: 80%;
-	max-width: 80%;
+	max-height: 75%;
+	max-width: 75%;
 }
 .-tour-box{
 	position: absolute;
@@ -237,6 +245,10 @@ body{
 }
 
 @media (max-width:991px) {
+	.-album{
+		max-width: 60%;
+		max-height: 60%;
+	}
 	.-tour-col{
 		float: none;
 	}
@@ -260,16 +272,17 @@ body{
 	right:0;
 	margin: auto;
 	max-width: 100%;
+	max-height: 100%;
 }
 #mail-box{
-	color: #eee;
+	color: #444;
 	width: 100%;
 	background: transparent;
 	outline: #333;
 	font-size: 16px;
 	border: none;
-	margin-top: 40px;
-	margin-bottom: 10px;
+	margin-top: 10px;
+	margin-bottom: 20px;
 	text-align: center;
 }
 
@@ -280,26 +293,32 @@ body{
 @media (max-width:991px) {
 	*, *::after, *::before{cursor: default !important;}
 }
+
+#other-img{
+	max-width: 100%;
+	max-height: 100%;
+}
 </style>
 </head>
 <body>
-	<div class="-wrapper">
+	<div class="-wrapper -min">
 		<!--background image-->
 		<div id="bg" class="-bg">
-			<img class="-bg-img" src="./images/2.jpeg" alt="">
-			<div class="-bg-overlay"></div>
+			<!--<img class="-bg-img" src="./images/90s.jpg" alt="">-->
+			<img id="other-img" src="./images/90s.jpg" alt="main visual">
+			<!--<div class="-bg-overlay"></div>-->
 		</div>
 
 		
 		<!--view content-->
 		<div id="view-album" class="-view">
 			<a href="https://play.google.com/store/music/album?id=B24dich4mhnth46rc4v6fbzocti">
-				<img class="-album" src="./images/album.jpg" alt="">
+				<img class="-album" src="./images/moett.jpg" alt="">
 			</a>
 		</div>
 		<div id="view-video" class="-view">
 			<!--<video id="video" src="./video.mp4"></video>-->
-			<iframe id="video" width="854" height="480" src="https://www.youtube.com/embed/1qhV6ko1YGQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			<iframe width="854" height="480" src="https://www.youtube.com/embed/bUjytGcdFdk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 		</div>
 		<div id="view-tour" class="-view">
 			<div class="-tour-box">
@@ -322,23 +341,23 @@ body{
 		</div>
 
 		<!--buttons-->
-		<div id="btn-tour" class="-mb -mb-tl">TOUR</div>
-		<div id="btn-other" class="-mb -mb-tr">OTHER</div>
-		<div id="btn-home" class="-mb -mb-tc">HOME</div>
-		<div id="btn-album" class="-mb -mb-bl -mb-b">ALBUM</div>
-		<div id="btn-video" class="-mb -mb-br -mb-b">VIDEO</div>
+		<!--<div id="btn-tour" class="-mb -mb-tl">TOUR</div>-->
+		<!--<div id="btn-other" class="-mb -mb-tr">OTHER</div>-->
+		<!--<div id="btn-home" class="-mb -mb-tc">HOME</div>-->
+		<div id="btn-album" class="-mb -mb-bl -mb-b -min">ALBUM</div>
+		<div id="btn-video" class="-mb -mb-br -mb-b -min">VIDEO</div>
 	</div>		
 
 	<!--social media links-->
-	<div class="-social-box">
-		<input id="mail-box" type="email" placeholder="ENTER EMAIL TO SUBSCRIBE"><br/><br/>
-		<a href="http://www.fb.com/tianondatrack" class="-ln"><span class="mdi -icon mdi-facebook"></span></a>
-		<a href="http://www.twitter.com/tianondatrack" class="-ln"><span class="mdi -icon mdi-twitter"></span></a>
-		<a href="http://www.instagram.com/tianondatrack" class="-ln"><span class="mdi -icon mdi-instagram"></span></a>
-		<a href="https://itunes.apple.com/us/artist/tian/4467908" class="-ln"><span class="mdi -icon mdi-itunes"></span></a>
-		<a href="https://play.google.com/store/music/artist/TiaN?id=Aavhrnhfo6sriv724zsydc5kfna" class="-ln"><span class="mdi -icon mdi-google-play"></span></a>
+	<div class="-social-box -active">
+		<!--<input id="mail-box" type="email" placeholder="ENTER EMAIL TO SUBSCRIBE"><br/><br/>-->
+		<div id="mail-box"></div>
+		<a href="https://www.facebook.com/khotso.moeti.96?ref=br_rs" class="-ln"><span class="mdi -icon mdi-facebook"></span></a>
+		<a href="https://twitter.com/moettsa" class="-ln"><span class="mdi -icon mdi-twitter"></span></a>
+		<a id="btn-home" href="#" class="-ln -ln-circ"><span class="mdi -icon mdi-equal"></span></a>
+		<a href="https://www.instagram.com/moettsa/" class="-ln"><span class="mdi -icon mdi-instagram"></span></a>
+		<a href="https://soundcloud.com/khotso-moeti" class="-ln"><span class="mdi -icon mdi-soundcloud"></span></a>
 	</div>
-	<div id="btn-social" style="font-size: 16px;" class="-mb -mb-bc">+</div>
 <script>
 
 	const f = q => document.querySelector(q)
@@ -349,41 +368,33 @@ body{
 		hideActiveView()
 		blurBg()
 		f('#view-'+ name).classList.add('-active')
+		btnHome.classList.add('-active')
+		f('#btn-home span').classList.remove('mdi-equal')
+		f('#btn-home span').classList.add('mdi-close')
 		//if(name === 'video')
 		//	video.play()
 	}
 
 	const hideActiveView = () => {
 		//video.pause()
+		btnHome.classList.remove('-active')
+		f('#btn-home span').classList.add('mdi-equal')
+		f('#btn-home span').classList.remove('mdi-close')
 		unBlurBg()
 		const active = f('.-view.-active')
 		if(active) 
 			active.classList.remove('-active')
 	}
 
-	//const video = f('#video') 
+	const video = f('#video') 
 	const divBg = f('#bg')
-	const btnSocial = f('#btn-social')
 	const btnHome = f('#btn-home')
 	const btnAlbum= f('#btn-album')
 	const btnVideo = f('#btn-video')
-	const btnOther = f('#btn-other')
-	const btnTour = f('#btn-tour')
 
 	btnHome.addEventListener('click', hideActiveView)
 	btnAlbum.addEventListener('click', view('album'))
 	btnVideo.addEventListener('click', view('video'))
-	btnOther.addEventListener('click', view('other'))
-	btnTour.addEventListener('click', view('tour'))
-
-	btnSocial.addEventListener('click', () => {
-		btnSocial.classList.toggle('-active')
-		f('.-social-box').classList.toggle('-active')
-		f('.-wrapper').classList.toggle('-min')
-		a('.-mb-b').forEach(btn => btn.classList.toggle('-min'))
-		if(!f('.-view.-active'))
-			divBg.classList.toggle('-blur')
-	})
 </script>
 </body>
 </html>
