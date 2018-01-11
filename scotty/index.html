@@ -24,6 +24,25 @@ body{
 	--wrapper-min-height: calc(100% - var(--social-height));
 }
 
+
+@font-face{
+	font-family: otto;
+	src: url('./otto.ttf');
+}
+
+.-title{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-family: otto;
+	font-size: 2.5em !important;
+	pointer-events: none;
+}
+
 .-wrapper{
 	position: fixed;
 	left: 0;
@@ -157,6 +176,9 @@ body{
 	height: auto;
 }
 
+.-bg img{
+	transition: 0.3s ease filter;
+}
 .-bg.-blur img{
 	filter: blur(10px);
 }
@@ -350,6 +372,7 @@ body{
 		<!--<div id="btn-home" class="-mb -mb-tc">HOME</div>-->
 		<div id="btn-album" class="-mb -mb-bl -mb-b -min">ALBUM</div>
 		<div id="btn-video" class="-mb -mb-br -mb-b -min">VIDEO</div>
+		<div class="-title">MOETT</div>
 	</div>		
 
 	<!--social media links-->
