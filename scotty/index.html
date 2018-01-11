@@ -343,8 +343,7 @@ body{
 			</a>
 		</div>
 		<div id="view-video" class="-view">
-			<!--<video id="video" src="./video.mp4"></video>-->
-			<iframe id="video" width="854" height="480" src="https://www.youtube.com/embed/bUjytGcdFdk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			<div id="video"></div>
 		</div>
 		<div id="view-tour" class="-view">
 			<div class="-tour-box">
@@ -405,6 +404,7 @@ body{
 
 	const hideActiveView = () => {
 		btnHome.classList.remove('-active')
+		stopVideo()
 		a('.-mb').forEach(el => el.classList.remove('-invert'))
 		f('#btn-home span').classList.add('mdi-equal')
 		f('#btn-home span').classList.remove('mdi-close')
@@ -422,6 +422,54 @@ body{
 	btnHome.addEventListener('click', hideActiveView)
 	btnAlbum.addEventListener('click', view('album'))
 	btnVideo.addEventListener('click', view('video'))
+
+	// youtube video
+	var tag = document.createElement('script');
+
+	tag.src = "https://www.youtube.com/iframe_api";
+	var firstScriptTag = document.getElementsByTagName('script')[0];
+	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+	var player;
+
+	function onYouTubeIframeAPIReady() {
+		player = new YT.Player('video', {
+			height: '480',
+			width: '854',
+			videoId: 'bUjytGcdFdk',
+			playerVars:{
+				autoplay: 0,
+				controls: 0,
+				enablejsapi: 1,
+				rel: 0,
+				showinfo: 0
+			},
+			events: {
+			'onReady': onPlayerReady,
+			'onStateChange': onPlayerStateChange
+			},
+		});
+	}
+
+
+	function onPlayerReady(event) {
+		event.target.playVideo();
+	}
+
+	// 5. The API calls this function when the player's state changes.
+	//    The function indicates that when playing a video (state=1),
+	//    the player should play for six seconds and then stop.
+	var done = false;
+	function onPlayerStateChange(event) {
+		if (event.data == YT.PlayerState.PLAYING && !done) {
+			setTimeout(stopVideo, 6000);
+			done = true;
+		}
+	}
+
+	function stopVideo() {
+		player.stopVideo();
+	}
+
 </script>
 </body>
 </html>
