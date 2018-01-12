@@ -175,7 +175,7 @@ body{
 	height: auto;
 }
 .-bg.-blur img{
-	filter: blur(10px);
+	//filter: blur(10px);
 }
 
 .-bg-overlay{
@@ -325,14 +325,23 @@ body{
 	#other-img{
 		width: 100%;
 	}
+
+	.-bg{
+		background:url('./images/mo.jpeg');
+		background-position: center;
+		background-size: cover;
+	}
+	.-bg-img{
+		display: none;
+	}
 }
 </style>
 </head>
 <body>
 	<div class="-wrapper -min">
 		<!--background image-->
-		<div id="bg" class="-bg -blur">
-			<img class="-bg-img" src="./images/ride.jpg" alt="">
+		<div id="bg" class="-bg">
+			<img class="-bg-img" src="./images/mo.jpeg" alt="">
 			<!--<img id="other-img" style="margin-top: 16px;" src="./images/f2.jpeg" alt="main visual">-->
 			<!--<div class="-bg-overlay"></div>-->
 		</div>
@@ -354,7 +363,7 @@ body{
 		<!--<div id="btn-home" class="-mb -mb-tc">HOME</div>-->
 		<div id="btn-album" class="-mb -mb-bl -mb-b -min -invert">ALBUM</div>
 		<div id="btn-video" class="-mb -mb-br -mb-b -min -invert">VIDEO</div>
-		<div class="-title">MOETT</div>
+		<!--<div class="-title">MOETT</div>-->
 	</div>		
 
 	<!--social media links-->
