@@ -6,74 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Type 9 Designs</title>
 	<link rel="stylesheet" href="./css/materialdesignicons.min.css">
-	<!--
-	                                                                           
-                                                                           
-                                                                           
-                                                                           
-           .++.                                              :++.          
-          ++'+.                                              :++++         
-         +++++.                                              :+++++        
-        ++'+                                                    ++++       
-        +':                                                      ;++       
-       :++                                                        ++.      
-       ++,                                                        :++      
-       ++                                                          ++      
-       ++                                                          ++      
-       ++                                                          ++      
-       ++                                                          ++      
-       ++                                                          ++      
-       ++                                                          ++      
-       ++                                                          ++      
-       ++                                                          ++      
-       ++                                                          ++      
-       ++                                                          ++      
-       ++                                                          ++      
-       ++                                                          ++      
-       ++                               .++;                       ++      
-       ++                            `++++++++:                    ++      
-       +'                          +++++`   ;++++.                 ++      
-       ++                       ;'+++,         ++'++`              ++      
-       +'                    ,'+++;              `+++++            ++      
-      ,+:              '+++++++'                    ,++++`         '+,     
-      ++             '+++++'+.                         :+'          ++     
-     +++            ,++                               '+++          +++    
-  +++++             ++                             ;++++++;          +++++ 
-  +++               ++                          :++++'+++++'           +++ 
-  +++++             +++;                     .+++++++++++'++         ++++' 
-    `+++           ;++++++++++             '+++'++++++++  +'        +++`   
-     `++           +++++++++++             ++++++++++.   :++        ++     
-      ++:          +`+++++++++:           ++++++++: ;;+++++        ;+'     
-       ++          ++ +++++++++++,    .'+++++++;   +++++++         '+      
-       ++          ,+++.`,;;++++++++++++++++'    .++++++++         ++      
-       ++           ++++,   '+++++++++++++++  '+ +++++++++         ++      
-       ++            +++++': +++++'++++++++ ;+++++++++++++         ++      
-       ++            ++++++''``'++'++++++,`++++++++++++'           ++      
-       ++            +++++++++++.        `+++++++++++`   `         ++      
-       ++            '+++++++++++++   ''++++++++++,                ++      
-       ++             .++++++++++++' :+++++++++;                   ++      
-       ++                   '++++++++++++++'+                      ++      
-       ++                    ++++++++++++''+                       ++      
-       ++                     ++++++++++++'`                       ++      
-       ++                      `+++++++++.                         ++      
-       ++                                                          ++      
-       ++                                                          ++      
-       ++                                                          ++      
-       ++                                                          ++      
-       ++                                                          ++      
-       ++`                                                        .++      
-       ;++                                                        ++:      
-        ++.                                                      .++       
-        +++;                                                    '+'+       
-        `+++++.                                              :++'++        
-         ,++++.                                              :++++.        
-           '++.                                              :++;          
-                                                                           
-                                                            
-		   htts://booleansandwiches.com
-	-->
 <style>
-
 html{
 	background: black;
 	box-sizing: border-box;
@@ -106,6 +39,7 @@ body{
 	font-family: otto;
 	font-size: 2.5em !important;
 	pointer-events: none;
+	color: #fff;
 }
 
 .-wrapper{
@@ -231,7 +165,7 @@ body{
 	overflow: hidden;
 	text-align:center;
 
-	background-color: white;
+	background-color: #000;
 }
 
 .-bg-img{
@@ -277,8 +211,8 @@ body{
 	display: inherit;
 }
 
-#view-tour, #view-video, #view-other{
-	background: #000;
+#view-video{
+	background: url('./images/tv.jpeg');
 }
 
 .-album{
@@ -392,7 +326,7 @@ body{
 		<!--background image-->
 		<div id="bg" class="-bg">
 			<!--<img class="-bg-img" src="./images/90s.jpg" alt="">-->
-			<img id="other-img" src="./images/90s.jpg" alt="main visual">
+			<img id="other-img" style="margin-top: 16px;" src="./images/f2.jpeg" alt="main visual">
 			<!--<div class="-bg-overlay"></div>-->
 		</div>
 
@@ -406,32 +340,13 @@ body{
 		<div id="view-video" class="-view">
 			<div id="video"></div>
 		</div>
-		<div id="view-tour" class="-view">
-			<div class="-tour-box">
-				<div class="-tour-date -tour-col">21 Feb</div>
-				<div class="-tour-location -tour-col">Germiston, GP</div>
-				<div class="-tour-venue -tour-col">Golden Walk</div>
-				<div class="-tour-buy -tour-col">Buy</div>
-				<div class="-tour-sep -tour-col"></div>
-
-				<div class="-tour-date -tour-col">18 Apr</div>
-				<div class="-tour-location -tour-col">Dinwiddie, GP</div>
-				<div class="-tour-venue -tour-col">Stone Arch</div>
-				<div class="-tour-buy -tour-col">Buy</div>
-				<div class="-tour-sep -tour-col"></div>
-			</div>
-			
-		</div>
-		<div id="view-other" class="-view">
-			<div style="margin: 200px 0;color: #fff;">STAY TUNED</div>
-		</div>
 
 		<!--buttons-->
 		<!--<div id="btn-tour" class="-mb -mb-tl">TOUR</div>-->
 		<!--<div id="btn-other" class="-mb -mb-tr">OTHER</div>-->
 		<!--<div id="btn-home" class="-mb -mb-tc">HOME</div>-->
-		<div id="btn-album" class="-mb -mb-bl -mb-b -min">ALBUM</div>
-		<div id="btn-video" class="-mb -mb-br -mb-b -min">VIDEO</div>
+		<div id="btn-album" class="-mb -mb-bl -mb-b -min -invert">ALBUM</div>
+		<div id="btn-video" class="-mb -mb-br -mb-b -min -invert">VIDEO</div>
 		<div class="-title">MOETT</div>
 	</div>		
 
@@ -466,7 +381,7 @@ body{
 	const hideActiveView = () => {
 		btnHome.classList.remove('-active')
 		stopVideo()
-		a('.-mb').forEach(el => el.classList.remove('-invert'))
+		//a('.-mb').forEach(el => el.classList.remove('-invert'))
 		f('#btn-home span').classList.add('mdi-equal')
 		f('#btn-home span').classList.remove('mdi-close')
 		unBlurBg()
@@ -527,6 +442,7 @@ body{
 		player.stopVideo();
 	}
 
+	btnAlbum.click()
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112333422-1"></script>
