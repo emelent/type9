@@ -319,12 +319,19 @@ body{
 	max-width: 100%;
 	max-height: 100%;
 }
+
+/*phones*/
+@media (max-width:767px) {
+	#other-img{
+		width: 100%;
+	}
+}
 </style>
 </head>
 <body>
 	<div class="-wrapper -min">
 		<!--background image-->
-		<div id="bg" class="-bg">
+		<div id="bg" class="-bg -blur">
 			<!--<img class="-bg-img" src="./images/90s.jpg" alt="">-->
 			<img id="other-img" style="margin-top: 16px;" src="./images/f2.jpeg" alt="main visual">
 			<!--<div class="-bg-overlay"></div>-->
@@ -332,7 +339,7 @@ body{
 
 		
 		<!--view content-->
-		<div id="view-album" class="-view">
+		<div id="view-album" class="-view -active">
 			<a href="https://play.google.com/store/music/album?id=B24dich4mhnth46rc4v6fbzocti">
 				<img class="-album" src="./images/moett.jpg" alt="">
 			</a>
@@ -441,8 +448,6 @@ body{
 	function stopVideo() {
 		player.stopVideo();
 	}
-
-	btnAlbum.click()
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112333422-1"></script>
